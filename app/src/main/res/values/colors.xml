@@ -11,4 +11,7 @@
     <color name="edit_text_background_color">#FFCDF5FD</color>
     <color name="hint_color">#FF808080</color>
     <color name="button_background_color">#FF89CFF3</color>
+    <color name="green">#FF008000</color>
+    <color name="red">#FFFF0000</color>
+    <color name="blue">#FF0000FF</color>
 </resources>
