@@ -5,6 +5,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import java.util.Arrays;
 
 public class MainActivity extends Activity {
 
@@ -21,11 +24,17 @@ public class MainActivity extends Activity {
         acceptButton = findViewById(R.id.accept_button);
 
         acceptButton.setOnClickListener(v -> {
-            Intent departingIntent = new Intent(MainActivity.this, SecondActivity.class);
+            String color = editText.getText().toString();
 
-            departingIntent.putExtra("color", editText.getText().toString());
+            if (!Arrays.asList(new String[]{"green", "blue", "red"}).contains(color)) {
+                Toast.makeText(getBaseContext(), "Wrong color", Toast.LENGTH_LONG).show();
+            } else {
+                Intent departingIntent = new Intent(MainActivity.this, SecondActivity.class);
 
-            startActivity(departingIntent);
+                departingIntent.putExtra("color", editText.getText().toString());
+
+                startActivity(departingIntent);
+            }
         });
     }
 }
