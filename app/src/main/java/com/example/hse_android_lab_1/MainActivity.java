@@ -24,14 +24,14 @@ public class MainActivity extends Activity {
         acceptButton = findViewById(R.id.accept_button);
 
         acceptButton.setOnClickListener(v -> {
-            String color = editText.getText().toString();
+            String color = editText.getText().toString().toLowerCase();
 
             if (!Arrays.asList(new String[]{"green", "blue", "red"}).contains(color)) {
                 Toast.makeText(getBaseContext(), "Wrong color", Toast.LENGTH_LONG).show();
             } else {
                 Intent departingIntent = new Intent(MainActivity.this, SecondActivity.class);
 
-                departingIntent.putExtra("color", editText.getText().toString());
+                departingIntent.putExtra("color", color);
 
                 startActivity(departingIntent);
             }
